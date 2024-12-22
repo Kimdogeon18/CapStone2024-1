@@ -28,6 +28,94 @@
 - OpenAI GPT API ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 ## 주요코드 1
+findRoute(startLatLng, endLatLng) / Naver Directions API를 호출해 출발지와 도착지 사이의 최적 경로를 탐색하고 지도에 표시합니다.
+
+
+```javacript
+function findRoute(startLatLng, endLatLng) {
+    var start = `${startLatLng.lng},${startLatLng.lat}`;
+    var goal = `${endLatLng.lng},${endLatLng.lat}`;
+
+    console.log("경로 탐색 시작 - 출발지:", start, "도착지:", goal);
+
+    var url = `https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start=${start}&goal=${goal}`;
+
+    var headers = {
+      '',
+      '',
+    };
+
+    fetch(url, { headers: headers })
+      .then((response) => {
+        console.log("Directions API 호출 상태 코드:", response.status);
+        if (!response.ok) {
+          throw new Error(`Directions API 호출 실패 - 상태 코드: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Directions API 응답 데이터:", data);
+        if (data.code !== 0 || !data.route || !data.route.traoptimal || data.route.traoptimal.length === 0) {
+          alert('경로 탐색 실패: 경로를 찾을 수 없습니다.');
+          return;
+        }
+
+        const route = data.route.traoptimal[0].path;
+        const path = route.map((point) => new naver.maps.LatLng(point[1], point[0]));
+
+        // 기존 경로 삭제
+        if (polyline) {
+          polyline.setMap(null);
+        }
+
+        // 새 경로 그리기
+        polyline = new naver.maps.Polyline({
+          map: map,
+          path: path,
+          strokeColor: '#FF0000',
+          strokeWeight: 4,
+        });
+
+        // 출발지 마커 설정
+        if (startMarker) {
+          startMarker.setMap(null);
+        }
+        startMarker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(startLatLng.lat, startLatLng.lng),
+          map: map,
+          title: "출발지",
+        });
+
+        // 도착지 마커 설정
+        if (endMarker) {
+          endMarker.setMap(null);
+        }
+        endMarker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(endLatLng.lat, endLatLng.lng),
+          map: map,
+          title: "도착지",
+        });
+
+        // 지도 경로 포함되도록 영역 설정
+        const bounds = new naver.maps.LatLngBounds();
+        path.forEach((point) => bounds.extend(point));
+        map.fitBounds(bounds);
+
+        // 경로 요약 정보 출력
+        const distance = data.route.traoptimal[0].summary.distance; // 거리 (미터)
+        const duration = data.route.traoptimal[0].summary.duration; // 시간 (밀리초)
+        alert(`경로 거리: ${(distance / 1000).toFixed(2)} km, 예상 시간: ${(duration / 60000).toFixed(1)} 분`);
+      })
+      .catch((err) => {
+        console.error('Directions API 호출 실패:', err.message);
+        alert('경로 탐색에 실패했습니다. 네트워크 상태를 확인하고 다시 시도해주세요.');
+      });
+  }
+});
+```
+
+
+## 주요코드 1
 getCoordinatesFromGooglePlaces(query, callback) / Google Places API를 사용해 입력된 텍스트 주소를 좌표로 변환합니다.
 
 ```javascript

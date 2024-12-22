@@ -20,10 +20,10 @@
 - JavaScript ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 - CSS ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 2. 지도 API
-- 네이버 지도 API <img src="https://img.shields.io/badge/NAVER-#03C75A?style=for-the-badge&logo=NAVER&logoColor=white">
+- 네이버 지도 API 
 3. 외부 API
 - Google Places API
-- OpenAI GPT API![image](https://github.com/user-attachments/assets/ad670e22-24fb-4134-af6e-4f97004c5e29)
+- OpenAI GPT API ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 
 

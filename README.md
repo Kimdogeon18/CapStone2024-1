@@ -28,10 +28,10 @@
 - OpenAI GPT API ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 ## 주요코드 1
-findRoute(startLatLng, endLatLng) / Naver Directions API를 호출해 출발지와 도착지 사이의 최적 경로를 탐색하고 지도에 표시합니다.
+findRoute(startLatLng, endLatLng) 
+Naver Directions API를 호출해 출발지와 도착지 사이의 최적 경로를 탐색하고 지도에 표시합니다.
 
-
-```javacript
+```javascript
 function findRoute(startLatLng, endLatLng) {
     var start = `${startLatLng.lng},${startLatLng.lat}`;
     var goal = `${endLatLng.lng},${endLatLng.lat}`;
@@ -116,7 +116,8 @@ function findRoute(startLatLng, endLatLng) {
 
 
 ## 주요코드 1
-getCoordinatesFromGooglePlaces(query, callback) / Google Places API를 사용해 입력된 텍스트 주소를 좌표로 변환합니다.
+getCoordinatesFromGooglePlaces(query, callback) 
+Google Places API를 사용해 입력된 텍스트 주소를 좌표로 변환합니다.
 
 ```javascript
 function getCoordinatesFromGooglePlaces(query, callback) {
@@ -151,7 +152,8 @@ function getCoordinatesFromGooglePlaces(query, callback) {
   }
 ```
 ## 주요코드 2
-handleUserQuestion(question, callback) / 사용자 질문 처리 함수 (OpenAI API 사용)
+handleUserQuestion(question, callback)
+사용자 질문 처리 함수 (OpenAI API 사용)
 ```javascript
  function handleUserQuestion(question, callback) {
     const openAiKey = "";
@@ -199,7 +201,8 @@ handleUserQuestion(question, callback) / 사용자 질문 처리 함수 (OpenAI 
 ```
 
 ## 주요코드 3
-addMarkerToMap(latLng, title) / 지도에 마커 추가 함수
+addMarkerToMap(latLng, title) 
+지도에 마커 추가 함수
 ```javascript
  function addMarkerToMap(latLng, title) {
     if (!latLng || (latLng.lat === 0 && latLng.lng === 0)) {
@@ -220,7 +223,8 @@ addMarkerToMap(latLng, title) / 지도에 마커 추가 함수
 ```
 
 ## 주요코드 4
-TrafficLayer() / 교통 정보 레이어 추가
+TrafficLayer() 
+교통 정보 레이어 추가
 ```javascript
 var trafficLayer = new naver.maps.TrafficLayer();
   var trafficVisible = false; // 교통 정보 초기 상태 (비활성화)
@@ -242,7 +246,8 @@ var trafficLayer = new naver.maps.TrafficLayer();
 ```
 
 ## 주요코드 5
-changeMapType() / 사용자가 선택한 지도 유형(일반, 위성, 하이브리드)을 변경합니다.
+changeMapType() 
+사용자가 선택한 지도 유형(일반, 위성, 하이브리드)을 변경합니다.
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function () {

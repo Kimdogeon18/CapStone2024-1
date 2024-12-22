@@ -27,6 +27,39 @@
 - Google Places API
 - OpenAI GPT API ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
+## 주요코드
+```javascript
+function getCoordinatesFromGooglePlaces(query, callback) {
+    const googleApiKey = "";
+
+    const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodeURIComponent(query)}&inputtype=textquery&fields=geometry&key=${googleApiKey}`;
+
+    console.log("Google Places API 호출 URL:", url);
+
+    fetch(url)
+      .then((response) => {
+        console.log("Google Places API 응답 상태 코드:", response.status);
+        if (!response.ok) {
+          throw new Error(`Google Places API 호출 실패 - 상태 코드: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Google Places API 응답 데이터:", data);
+        if (data.candidates && data.candidates.length > 0) {
+          const location = data.candidates[0].geometry.location;
+          callback({ lat: location.lat, lng: location.lng });
+        } else {
+          console.error("Google Places API에서 장소를 찾지 못했습니다.");
+          callback(null);
+        }
+      })
+      .catch((error) => {
+        console.error("Google Places API 호출 실패:", error);
+        callback(null);
+      });
+  }
+
 
 
 

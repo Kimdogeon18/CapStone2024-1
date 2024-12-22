@@ -113,7 +113,7 @@ function findRoute(startLatLng, endLatLng) {
   }
 });
 ```
-## 실행화면면
+## 실행화면
 ![image](https://github.com/user-attachments/assets/24f4dfdb-1d64-4383-ae87-c96ecfa40ac5)
 
 

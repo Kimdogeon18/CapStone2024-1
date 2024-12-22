@@ -113,6 +113,7 @@ function findRoute(startLatLng, endLatLng) {
   }
 });
 ```
+## 실행화면면
 ![image](https://github.com/user-attachments/assets/24f4dfdb-1d64-4383-ae87-c96ecfa40ac5)
 
 
@@ -201,6 +202,9 @@ handleUserQuestion(question, callback)
   }
 ```
 
+## 실행화면
+![image](https://github.com/user-attachments/assets/1f699740-3dc2-45a4-8211-4a74433f897d)
+
 ## 주요코드 4
 addMarkerToMap(latLng, title) 
 지도에 마커 추가 함수
@@ -245,6 +249,11 @@ var trafficLayer = new naver.maps.TrafficLayer();
     });
   }
 ```
+## 실행화면
+![image](https://github.com/user-attachments/assets/b1fd11ab-df41-4e3e-bff6-564188e53b93)
+![image](https://github.com/user-attachments/assets/11cf6614-7337-4a89-a8dd-764335e4ca79)
+
+
 
 ## 주요코드 6
 changeMapType() 
@@ -267,6 +276,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 ```
+## 실행화면
+![image](https://github.com/user-attachments/assets/79e41a08-c5f0-4773-8900-df5577353443)
+
 
 
 

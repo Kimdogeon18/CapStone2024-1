@@ -113,9 +113,10 @@ function findRoute(startLatLng, endLatLng) {
   }
 });
 ```
+![image](https://github.com/user-attachments/assets/24f4dfdb-1d64-4383-ae87-c96ecfa40ac5)
 
 
-## 주요코드 1
+## 주요코드 2
 getCoordinatesFromGooglePlaces(query, callback) 
 Google Places API를 사용해 입력된 텍스트 주소를 좌표로 변환합니다.
 
@@ -151,7 +152,7 @@ function getCoordinatesFromGooglePlaces(query, callback) {
       });
   }
 ```
-## 주요코드 2
+## 주요코드 3
 handleUserQuestion(question, callback)
 사용자 질문 처리 함수 (OpenAI API 사용)
 ```javascript
@@ -200,7 +201,7 @@ handleUserQuestion(question, callback)
   }
 ```
 
-## 주요코드 3
+## 주요코드 4
 addMarkerToMap(latLng, title) 
 지도에 마커 추가 함수
 ```javascript
@@ -222,7 +223,7 @@ addMarkerToMap(latLng, title)
   }
 ```
 
-## 주요코드 4
+## 주요코드 5
 TrafficLayer() 
 교통 정보 레이어 추가
 ```javascript
@@ -245,7 +246,7 @@ var trafficLayer = new naver.maps.TrafficLayer();
   }
 ```
 
-## 주요코드 5
+## 주요코드 6
 changeMapType() 
 사용자가 선택한 지도 유형(일반, 위성, 하이브리드)을 변경합니다.
 
